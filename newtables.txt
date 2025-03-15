@@ -1,0 +1,52 @@
+CREATE TABLE students (
+    rollno INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+
+INSERT INTO students (rollno, name) VALUES
+(520, 'Rahul Sharma'),
+(521, 'Priya Verma'),
+(522, 'Amit Kumar');
+
+
+
+CREATE TABLE subjects (
+    subject_id INT PRIMARY KEY,
+    subject_name VARCHAR(100) NOT NULL
+);
+
+
+INSERT INTO subjects (subject_id, subject_name) VALUES
+(1, 'Mathematics'),
+(2, 'Physics'),
+(3, 'Chemistry'),
+(4, 'Computer Science'),
+(5, 'English');
+
+
+
+
+CREATE TABLE test (
+    test_type VARCHAR(100) PRIMARY KEY
+);
+
+INSERT INTO test (test_type) VALUES
+('Mid-Term Exam'),
+('Final Exam');
+
+
+
+ CREATE TABLE results (
+         id INT AUTO_INCREMENT PRIMARY KEY,
+         rollno INT NOT NULL,
+         subject_id INT NOT NULL,
+         test_type VARCHAR(100) NOT NULL,
+         marks INT NOT NULL
+     );
+
+
+
+
+
+

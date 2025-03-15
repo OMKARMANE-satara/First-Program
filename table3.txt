@@ -1,0 +1,47 @@
+CREATE TABLE students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    rollno INT UNIQUE NOT NULL,
+    class VARCHAR(50) NOT NULL
+);
+
+
+CREATE TABLE subjects (
+    subject_id INT AUTO_INCREMENT PRIMARY KEY,
+    subject_name VARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE teachers (
+    t_id INT AUTO_INCREMENT PRIMARY KEY,
+    t_name VARCHAR(100) NOT NULL,
+    dept VARCHAR(100) NOT NULL,
+    designation VARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE tests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    subject_id INT NOT NULL,
+    test_type ENUM('Internal', 'External') NOT NULL,
+    test_date DATE NOT NULL,
+    marks INT NOT NULL CHECK (marks >= 0 AND marks <= 100),
+    teacher_id INT NOT NULL,
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+    FOREIGN KEY (subject_id) REFERENCES subjects(subject_id),
+    FOREIGN KEY (teacher_id) REFERENCES teachers(t_id)
+);
+
+create report page. to using tests table data  CREATE TABLE tests ( 
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    subject_id INT NOT NULL,
+    test_type ENUM('Internal', 'External') NOT NULL,
+    test_date DATE NOT NULL,
+    marks INT NOT NULL CHECK (marks >= 0 AND marks <= 100),
+    teacher_id INT NOT NULL,
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+    FOREIGN KEY (subject_id) REFERENCES subjects(subject_id),
+    FOREIGN KEY (teacher_id) REFERENCES teachers(t_id)
+);
